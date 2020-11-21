@@ -15,14 +15,14 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import DTO.Cliente;
 /**
  *
  * @author german
  */
 public class Controlador extends HttpServlet {
 
-    @Override
+ 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
         String pr=request.getParameter("action");
@@ -49,6 +49,8 @@ public class Controlador extends HttpServlet {
          RequestDispatcher dispatcher = request.getRequestDispatcher("./index.html");
             Facade fa=new Facade();
              String codigo=request.getParameter("cedu");
+             Cliente c = new Cliente();
+             fa.CrearCliente(Cliente);
              List<Empleado> listaEmpleados = new LinkedList <>();
                      listaEmpleados.add(fa.getEmpleado(codigo));
              System.out.println("llego");  
